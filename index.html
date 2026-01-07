@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeoMart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>NeoMart</h1>
+  <nav id="navLinks">
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#cart">Cart (<span id="cartCount">0</span>)</a>
+  </nav>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<section class="hero">
+  <h2>Best Online Store</h2>
+  <p>Trendy products at best prices</p>
+</section>
+
+<section id="products" class="products"></section>
+
+<section id="cart" class="cart">
+  <h2>Your Cart</h2>
+  <div id="cartItems"></div>
+  <h3>Total: ₹<span id="total">0</span></h3>
+  <button onclick="checkout()">Checkout</button>
+</section>
+
+<footer>
+  <p>© 2026 NeoMart</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
