@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enrollment Successful</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="enroll-page">
+
+    <div class="enroll-box">
+        <h2>Enrollment Confirmed</h2>
+        <p id="course-text"></p>
+        <a href="/">Back to Courses</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        const course = params.get("course")
+        document.getElementById("course-text").innerText = "Course Enrolled: " + course
+    </script>
+
+</body>
+</html>

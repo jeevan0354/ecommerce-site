@@ -1,41 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NeoMart</title>
-<link rel="stylesheet" href="style.css">
+    <title>EverAfter Events</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>NeoMart</h1>
-  <nav id="navLinks">
-    <a href="#">Home</a>
-    <a href="#products">Products</a>
-    <a href="#cart">Cart (<span id="cartCount">0</span>)</a>
-  </nav>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-</header>
+    <div class="nav">
+        <h2>EverAfter Events</h2>
+        <ul>
+            <li>Home</li>
+            <li>Services</li>
+            <li>Gallery</li>
+        </ul>
+    </div>
 
-<section class="hero">
-  <h2>Best Online Store</h2>
-  <p>Trendy products at best prices</p>
-</section>
+    <div class="hero">
+        <h1>Your Dream Wedding, Perfectly Planned</h1>
+        <p>Select a planning package</p>
+    </div>
 
-<section id="products" class="products"></section>
+    <div class="package-section" id="packages">
 
-<section id="cart" class="cart">
-  <h2>Your Cart</h2>
-  <div id="cartItems"></div>
-  <h3>Total: ₹<span id="total">0</span></h3>
-  <button onclick="checkout()">Checkout</button>
-</section>
+        <form class="package" action="/plan" method="post">
+            <h3>Basic Wedding</h3>
+            <p>Decoration & Coordination</p>
+            <p>₹1,50,000</p>
+            <input type="hidden" name="package" value="Basic Wedding Package">
+            <button type="submit">Choose Plan</button>
+        </form>
 
-<footer>
-  <p>© 2026 NeoMart</p>
-</footer>
+        <form class="package" action="/plan" method="post">
+            <h3>Premium Wedding</h3>
+            <p>Venue, Catering & Decoration</p>
+            <p>₹3,50,000</p>
+            <input type="hidden" name="package" value="Premium Wedding Package">
+            <button type="submit">Choose Plan</button>
+        </form>
 
-<script src="script.js"></script>
+        <form class="package" action="/plan" method="post">
+            <h3>Luxury Wedding</h3>
+            <p>Complete End-to-End Planning</p>
+            <p>₹6,00,000</p>
+            <input type="hidden" name="package" value="Luxury Wedding Package">
+            <button type="submit">Choose Plan</button>
+        </form>
+
+    </div>
+
+    <div class="confirm-section" id="confirm">
+        <div class="confirm-box">
+            <h2>Planning Confirmed</h2>
+            <p id="confirm-text"></p>
+            <a href="/">Back to Plans</a>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        const plan = params.get("plan")
+        if (plan) {
+            document.getElementById("packages").style.display = "none"
+            document.querySelector(".hero").style.display = "none"
+            document.getElementById("confirm").style.display = "flex"
+            document.getElementById("confirm-text").innerText = "Selected Package: " + plan
+        }
+    </script>
+
 </body>
 </html>
